@@ -18,7 +18,7 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
         with:
-          submodules: recursive   # kéo HookTool submodule
+          submodules: recursive
 
       - name: Set up JDK 21
         uses: actions/setup-java@v4
@@ -29,25 +29,6 @@ jobs:
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-
-      - name: Create gradle/libs.versions.toml
-        run: |
-          mkdir -p gradle
-          cat > gradle/libs.versions.toml << 'EOF'
-          [versions]
-          agp    = "9.2.1"
-          kotlin = "2.1.20"
-
-          [plugins]
-          android-application = { id = "com.android.application", version.ref = "agp" }
-          android-library     = { id = "com.android.library",     version.ref = "agp" }
-          kotlin-android      = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-          EOF
-
-      - name: Upgrade Gradle wrapper to 8.11.1
-        run: |
-          sed -i 's|distributionUrl=.*|distributionUrl=https\\://services.gradle.org/distributions/gradle-8.11.1-bin.zip|' \
-            gradle/wrapper/gradle-wrapper.properties
 
       - name: Write keystore & signing properties
         env:
