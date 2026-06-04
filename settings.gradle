@@ -5,7 +5,6 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -15,9 +14,10 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-
 rootProject.name = "AppRetentionHook"
 include ':app'
+include ':app:collect'  // ← thêm dòng này
+project(':app:collect').projectDir = new File(rootDir, 'app/collect')  // ← thêm dòng này
 include ':HookTool:tool'
 project(':HookTool:tool').projectDir = new File(rootDir, 'HookTool/tool')
 include ':k80p' // 报错可删
