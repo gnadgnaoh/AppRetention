@@ -1,8 +1,24 @@
+cat > /workspaces/AppRetention/gradle/libs.versions.toml << 'EOF'
 [versions]
 agp    = "8.5.2"
 kotlin = "2.1.20"
+xposed = "101.0.1"
+service = "101.0.0"
+appcompat = "1.7.1"
+activity = "1.13.0"
+constraintlayout = "2.2.1"
+annotation = "1.10.0"
+
+[libraries]
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+annotation = { module = "androidx.annotation:annotation-jvm", version.ref = "annotation" }
+service = { module = "io.github.libxposed:service", version.ref = "service" }
+xposed = { group = "io.github.libxposed", name = "api", version.ref = "xposed" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library     = { id = "com.android.library",     version.ref = "agp" }
 kotlin-android      = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+EOF
