@@ -125,7 +125,7 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.9.1'
     implementation 'org.lsposed.hiddenapibypass:hiddenapibypass:6.1'
 
-    implementation(project(':HookTool'))
+    implementation(project(':HookTool:tool'))
     implementation implementation(project(':app:collect'))
     annotationProcessor annotationProcessor(project(':app:collect'))
 }
