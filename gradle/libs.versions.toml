@@ -1,5 +1,5 @@
 [versions]
-agp    = "9.2.1"
+agp    = "8.5.2"
 kotlin = "2.1.20"
 
 [plugins]
