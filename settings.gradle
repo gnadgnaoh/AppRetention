@@ -18,8 +18,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "AppRetentionHook"
 include ':app'
-include ':HookTool'
-include ':app:collect'
+include ':HookTool:tool'
+project(':HookTool:tool').projectDir = new File(rootDir, 'HookTool/tool')
 include ':k80p' // 报错可删
 include ':k50' // 报错可删
 include ':11p' // 报错可删
